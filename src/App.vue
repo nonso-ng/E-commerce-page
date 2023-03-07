@@ -17,8 +17,8 @@ import Hero from './components/HeroPage.vue'
 
 
 body{
-  background-color: aqua;
-  max-width: 1200px;
+  background-color: white;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
