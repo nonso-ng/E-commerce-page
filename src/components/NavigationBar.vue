@@ -3,7 +3,7 @@
     <div class="top-left">
       <img src="../assets/logo.svg" />
       <div class="list">
-        <ul>
+        <ul style="color: #68707d;">
           <li>Collections</li>
           <li>Men</li>
           <li>Women</li>
@@ -39,6 +39,7 @@
 
 .list ul {
   display: flex;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 .list ul li {
   margin-right: 18%;

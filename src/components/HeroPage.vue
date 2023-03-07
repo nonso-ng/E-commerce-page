@@ -15,9 +15,9 @@
       </div>
     </div>
     <div class="hero-right">
-      <p>SNEAKER COMPANY</p>
+      <p style="color:hsl(26, 100%, 55%) ;">SNEAKER COMPANY</p>
       <h2>Fall Limited Edition<br />Sneakers</h2>
-      <p>
+      <p style="color: #68707d;">
         These low profile Sneakers are your perfect casual wear companion.
         Featuring a durable rubber outer sole, they'll withstand everything the
         weather can offer.
@@ -27,9 +27,9 @@
         <h3>50%</h3>
       </div>
       <div class="cart">
-        <div>-</div>
-        <div>0</div>
-        <div>+</div>
+        <div class="decrea">-</div>
+        <div class="count">0</div>
+        <div class="increa">+</div>
         <button class="btn">
             <img class="broke" src="../assets/icon-cart.svg"/>
             Add to cart
@@ -44,6 +44,7 @@
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr 1fr;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 
 .hero-left {
@@ -80,7 +81,42 @@
     border: none;
     border-radius: 12px;
     color: white;
+    cursor: pointer;
+    margin-left: 20px;
+}
+.cart .increa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f8fd;
+    height: 50px;
+    width: 50px;
+    color: hsl(26, 100%, 55%) ;
+    border-radius: 0 12px 12px 0;
+    cursor: pointer;
 }
 
+.cart .count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f8fd;
+    height: 50px;
+    width: 50px;
+    color: #68707d ;
+}
+
+.cart .decrea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  #f7f8fd;
+    height: 50px;
+    width: 50px;
+    color: hsl(26, 100%, 55%) ;
+    border-radius: 12px 0 0 12px;
+    cursor: pointer;
+
+}
 
 </style>
