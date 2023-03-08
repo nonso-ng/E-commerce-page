@@ -15,21 +15,22 @@
       </div>
     </div>
     <div class="hero-right">
-      <p style="color:hsl(26, 100%, 55%) ;">SNEAKER COMPANY</p>
-      <h2>Fall Limited Edition<br />Sneakers</h2>
-      <p style="color: #68707d;">
+      <h5 style="color:hsl(26, 100%, 55%); font-weight: 800; letter-spacing: 1.5px; margin-bottom: 20px;">SNEAKER COMPANY</h5>
+      <h1 style="font-weight: 800; margin-bottom: 30px;">Fall Limited Edition<br />Sneakers</h1>
+      <p style="color: #68707d; margin-bottom: 20px; ">
         These low profile Sneakers are your perfect casual wear companion.
         Featuring a durable rubber outer sole, they'll withstand everything the
         weather can offer.
       </p>
       <div class="price">
         <h2>$125.00</h2>
-        <h3>50%</h3>
+        <h4>50%</h4>
       </div>
+      <h4 style="color:#68707d; margin-bottom: 30px;"><del>$250.00</del></h4>
       <div class="cart">
-        <div class="decrea">-</div>
+        <h2 class="decrea">-</h2>
         <div class="count">0</div>
-        <div class="increa">+</div>
+        <h2 class="increa">+</h2>
         <button class="btn">
             <img class="broke" src="../assets/icon-cart.svg"/>
             Add to cart
@@ -62,17 +63,27 @@
   height: 20%;
   border-radius: 10%;
 }
+.hero-right{
+    margin: 20% 25% 0 10%;
+}
 
 .hero-right .price{
     display: flex;
+    margin-bottom: 10px;
     
 }
-.price h3{
+.price h4{
+    display: flex;
     color: hsl(26, 100%, 55%);
     background-color: hsl(25, 100%, 94%);
+    align-items: center;
+    padding: 0% 1.5% 0% 1.5%;
+    border-radius: 7px;
+    margin-left: 5%;
 }
 .cart{
     display: flex;
+    
 }
 .cart button{
     background-color:hsl(26, 100%, 55%) ;
@@ -83,6 +94,7 @@
     color: white;
     cursor: pointer;
     margin-left: 20px;
+    font-family: 'Kumbh Sans', sans-serif;
 }
 .cart .increa{
     display: flex;
@@ -94,6 +106,9 @@
     color: hsl(26, 100%, 55%) ;
     border-radius: 0 12px 12px 0;
     cursor: pointer;
+    font-family: 'Kumbh Sans', sans-serif;
+    
+    
 }
 
 .cart .count{
@@ -103,7 +118,9 @@
     background-color: #f7f8fd;
     height: 50px;
     width: 50px;
-    color: #68707d ;
+    color: black ;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: 700;
 }
 
 .cart .decrea{
@@ -116,6 +133,8 @@
     color: hsl(26, 100%, 55%) ;
     border-radius: 12px 0 0 12px;
     cursor: pointer;
+    font-family: 'Kumbh Sans', sans-serif;
+    
 
 }
 
