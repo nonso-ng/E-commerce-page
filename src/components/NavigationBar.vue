@@ -14,8 +14,8 @@
     </div>
 
     <div class="top-right">
-      <img src="../assets/icon-cart.svg" />
-      <img style="width: 40%; height: 40%" src="../assets/image-avatar.png" />
+      <img class="cart" style="height: 20px; width: 20px;" src="../assets/icon-cart.svg" />
+      <img class="avatar" src="../assets/image-avatar.png" />
     </div>
   </div>
   <hr />
@@ -37,6 +37,32 @@
 .top-left img{
     align-items: center;
 }
+.top-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40%;
+ 
+}
+
+ .cart {
+  margin-bottom: 4px;
+  filter: invert(1%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+  cursor: pointer;
+}
+.avatar{
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: 0.4s all ease;
+}
+.avatar:hover{
+  border: 2px solid hsl(26, 100%, 55%);
+  border-radius: 50%;
+
+}
 
 .list ul {
   display: flex;
@@ -47,4 +73,6 @@
   margin-right: 18%;
   list-style: none;
 }
+
+
 </style>
