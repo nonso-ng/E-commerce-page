@@ -26,6 +26,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 1.3% 0% 1.3% 0%;
 }
 
 .top-left{
@@ -40,6 +41,7 @@
 .list ul {
   display: flex;
   font-family: 'Kumbh Sans', sans-serif;
+  margin-left: 20%;
 }
 .list ul li {
   margin-right: 18%;
