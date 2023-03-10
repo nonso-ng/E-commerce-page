@@ -1,24 +1,22 @@
-import { reactive } from "vue";
+import { createStore } from 'vuex'
 
-
-const state = reactive(
-    {
-        counter: 0
-    }
-    
-) 
-
-
-const methods = {
-    increaseCount(){
-        state.counter++
+export default createStore({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increaseCount(state){
+        state.count++
     },
-
-    decreaseCount(){
-        state.counter--
+    decreaseCount(state){
+        state.count--
+    },
+    resetCount(state){
+        state.count = 0
     }
-}
-
-export default{
-    state,methods
-}
+  },
+  actions: {
+  },
+  modules: {
+  }
+})

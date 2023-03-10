@@ -1,12 +1,4 @@
 
-  
-<script>
-export default{
-  props:["boy"]
-}
-
-</script>
-
 <template>
   <div class="hero">
     <div class="hero-left">
@@ -38,15 +30,15 @@ export default{
       <div class="price">
         <h2>$125.00</h2>
         <h4>50%</h4>
-        <h1>{{ boy }}</h1>
+        
       </div>
       <h4 style="color: #68707d; margin-bottom: 30px"><del>$250.00</del></h4>
       <div class="cart">
-        <h2 class="decrea" @click="store.methods.decreaseCount">-</h2>
-        <div class="count">{{ store.state.counter }}</div>
-        <h2 class="increa" @click="store.methods.increaseCount">+</h2>
-        <button class="btn">
-          <img class="broke" src="../assets/icon-cart.svg" />
+        <button class="decrea" @click="$store.commit('decreaseCount')">-</button>
+        <div class="count">{{ $store.state.count }}</div>
+        <button class="increa" @click="$store.commit('increaseCount')">+</button>
+        <button class="btn" @click="$store.commit('resetCount')">
+          <img class="broke"  src="../assets/icon-cart.svg" />
           Add to cart
         </button>
       </div>
@@ -55,9 +47,7 @@ export default{
 </template>
 
 <script setup>
-import { inject } from 'vue';
 
-const store = inject('store')
 </script>
 
 
@@ -111,12 +101,7 @@ const store = inject('store')
   margin-bottom: 20px;
 
 }
-/* style="
-          color: hsl(26, 100%, 55%);
-          font-weight: 800;
-          letter-spacing: 1.5px;
-          margin-bottom: 20px;
-        " */
+
 .hero-right .price {
   display: flex;
   margin-bottom: 10px;
@@ -134,7 +119,7 @@ const store = inject('store')
 .cart {
   display: flex;
 }
-.cart button {
+.cart .btn {
   background-color: hsl(26, 100%, 55%);
   width: 280px;
   height: 50px;
@@ -154,8 +139,12 @@ const store = inject('store')
   width: 50px;
   color: hsl(26, 100%, 55%);
   border-radius: 0 12px 12px 0;
+  border: none;
   cursor: pointer;
   font-family: "Kumbh Sans", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  padding-bottom: 7px;
 }
 
 .cart .count {
@@ -179,8 +168,12 @@ const store = inject('store')
   width: 50px;
   color: hsl(26, 100%, 55%);
   border-radius: 12px 0 0 12px;
+  border: none;
   cursor: pointer;
   font-family: "Kumbh Sans", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  padding-bottom: 7px;
 }
 </style>
 
