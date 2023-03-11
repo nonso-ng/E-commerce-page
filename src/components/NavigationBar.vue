@@ -14,8 +14,11 @@
     </div>
 
     <div class="top-right">
-      <img class="cart" style="height: 25px; width: 25px;" src="../assets/icon-cart.svg" />
-      <div class="display">{{ $store.state.count }}</div>
+      <div class="cart-display">
+        <img class="cart" style="height: 25px; width: 25px;" src="../assets/icon-cart.svg" />
+        <div class="top-right-display">0</div>
+      </div>
+    
       <img class="avatar" src="../assets/image-avatar.png" />
     </div>
   </div>
@@ -42,17 +45,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40%;
+  gap: 15%;
  
 }
-.top-right .display{
+.cart-display{
+  display: flex;
+}
+.top-right-display{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: hsl(26, 100%, 55%);
   color: white;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+  width: 25px;
+  height: 25px;
   font-family: 'Kumbh Sans', sans-serif;
   font-weight: 500;
+  border-radius: 45%;
 
   
 }

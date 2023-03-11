@@ -39,9 +39,14 @@
         <button class="increa" @click="$store.commit('increaseCount')">+</button>
         <button class="btn" @click="$store.commit('resetCount')">
           <img class="broke"  src="../assets/icon-cart.svg" />
-          Add to cart
+        <div>  Add to cart</div>
         </button>
       </div>
+      <div class="set-value">
+        <input type="number" v-model="$store.state.anotherCount"  placeholder="Set Number"/>
+        <button @click="$store.commit('setValue')">Add Number</button>
+      </div>
+   
     </div>
   </div>
 </template>
@@ -92,7 +97,7 @@
 }
 
 .hero-right {
-  margin: 20% 25% 0 10%;
+  margin: 15% 25% 0 10%;
 }
 .hero-right h5{
   color: hsl(26, 100%, 55%);
@@ -120,8 +125,12 @@
   display: flex;
 }
 .cart .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   background-color: hsl(26, 100%, 55%);
-  width: 280px;
+  width: 250px;
   height: 50px;
   border: none;
   border-radius: 12px;
@@ -129,6 +138,7 @@
   cursor: pointer;
   margin-left: 20px;
   font-family: "Kumbh Sans", sans-serif;
+  padding-right: 45px;
 }
 .cart .increa {
   display: flex;
@@ -174,6 +184,30 @@
   font-weight: 700;
   font-size: 30px;
   padding-bottom: 7px;
+}
+
+.set-value{
+  margin-top: 10px;
+}
+.set-value input{
+ width: 150px;
+ height: 50px;
+ border-radius: 10px;
+ padding-left: 5px;
+ border-color: hsl(26, 100%, 55%) ;
+ 
+
+}
+.set-value button{
+  background-color: hsl(26, 100%, 55%);
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  font-family: "Kumbh Sans", sans-serif;
 }
 </style>
 
