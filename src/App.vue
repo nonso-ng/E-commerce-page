@@ -1,13 +1,16 @@
 <template>
 
 <Navbar/>
-<Hero/>
+<router-view>
   
+  
+</router-view>
+
 </template>
 
 <script setup>
 import Navbar from "./components/NavigationBar.vue"
-import Hero from './components/HeroPage.vue';
+//import Hero from './components/HeroPage.vue';
 
 
 </script>

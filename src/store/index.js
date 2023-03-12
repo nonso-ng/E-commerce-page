@@ -18,7 +18,6 @@ export default createStore({
     },
     resetCount(state) {
       state.loadedCount = state.count;
-
       state.count = 0;
       state.anotherCount = " ";
     },

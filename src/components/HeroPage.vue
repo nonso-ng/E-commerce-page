@@ -49,6 +49,9 @@
    
     </div>
   </div>
+  
+  <font-awesome-icon icon="fa-solid fa-bars" />
+  <font-awesome-icon icon="fa-solid fa-xmark" />
 </template>
 
 <script setup>

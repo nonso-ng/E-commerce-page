@@ -1,30 +1,28 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HeroPage from "../components/HeroPage.vue"
-//import ErrorPage from "../components/ErrorPage.vue"
+import HeroPage from "../components/HeroPage.vue";
+import ErrorPage from "../components/ErrorPage.vue"
 //import NavBar from "../components/NavigationBar.vue"
 
 const routes = [
+  { path: "/", redirect: "/counter" },
+
   {
     path: "/counter",
     name: "home",
     component: HeroPage,
   },
   {
-    // path: "*",
-    // name: "error",
-    // component: ErrorPage,
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () =>
-    //   import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  },
+    path:"/:pathMatch(.*)*",
+    name:"errorPage",
+    component: ErrorPage
+  }
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  
 });
 
 export default router;

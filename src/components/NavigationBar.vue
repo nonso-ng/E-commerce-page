@@ -1,6 +1,7 @@
 <template>
   <div class="navbar">
     <div class="top-left">
+      <font-awesome-icon icon="fa-solid fa-bars" size="lg"  class="toggle"/>
       <img src="../assets/logo.svg" />
       <div class="list">
         <ul style="color: #68707d;">
@@ -16,14 +17,25 @@
     <div class="top-right">
       <div class="cart-display">
         <img class="cart" style="height: 25px; width: 25px;" src="../assets/icon-cart.svg" />
-        <div class="top-right-display" >{{ $store.state.loadedCount }}</div>
+        <div class="top-right-display" >{{ loadedCount}}</div>
       </div>
     
       <img class="avatar" src="../assets/image-avatar.png" />
+     
     </div>
   </div>
   <hr />
 </template>
+
+<script>
+export default{
+  computed:{
+    loadedCount(){
+      return(this.$store.state.loadedCount)
+    }
+  }
+}
+</script>
 
 <style scoped>
 .navbar {
@@ -47,6 +59,18 @@
   align-items: center;
   gap: 15%;
  
+}
+.toggle{
+  display: none;
+}
+
+@media(max-width:600px){
+  .toggle{
+    display: flex;
+  }
+  .cart-display{
+    display: none;
+  }
 }
 .cart-display{
   display: flex;
@@ -92,6 +116,11 @@
   display: flex;
   font-family: 'Kumbh Sans', sans-serif;
   margin-left: 20%;
+}
+@media(max-width:600px){
+  .list{
+    display: none;
+  }
 }
 .list ul li {
   margin-right: 18%;
