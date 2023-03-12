@@ -57,11 +57,14 @@
   align-items: center;
   background-color: hsl(26, 100%, 55%);
   color: white;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   font-family: 'Kumbh Sans', sans-serif;
   font-weight: 500;
+  font-size: small;
   border-radius: 45%;
+  position: relative;
+  right: 10px;
 
   
 }

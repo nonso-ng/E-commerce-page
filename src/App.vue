@@ -1,6 +1,10 @@
 <template>
+
+
+<router-view>
   <Navbar/>
   <Hero/>
+</router-view>
   
 </template>
 
