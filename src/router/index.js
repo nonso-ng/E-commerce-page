@@ -1,16 +1,19 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import HeroPage from "../components/HeroPage.vue"
+//import ErrorPage from "../components/ErrorPage.vue"
+//import NavBar from "../components/NavigationBar.vue"
 
 const routes = [
   {
-    path: "/",
+    path: "/counter",
     name: "home",
     component: HeroPage,
   },
   {
-    path: "/about",
-    name: "about",
+    // path: "*",
+    // name: "error",
+    // component: ErrorPage,
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

@@ -16,7 +16,7 @@
     <div class="top-right">
       <div class="cart-display">
         <img class="cart" style="height: 25px; width: 25px;" src="../assets/icon-cart.svg" />
-        <div class="top-right-display">0</div>
+        <div class="top-right-display" >{{ $store.state.loadedCount }}</div>
       </div>
     
       <img class="avatar" src="../assets/image-avatar.png" />
