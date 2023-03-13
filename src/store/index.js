@@ -22,9 +22,7 @@ export default createStore({
       state.anotherCount = " ";
     },
 
-    setValue(state) {
-      state.count = state.anotherCount;
-    },
+   
     // handleShow(state){
     //     state.show = true;
 
@@ -35,7 +33,30 @@ export default createStore({
       setTimeout(() => {
         commit('increaseCount')
       })
+    },
+
+    asyncDecrement ({commit}) {
+      setTimeout(() => {
+        commit('decreaseCount')
+      })
+    },
+
+    asyncResetState ({commit}) {
+      setTimeout(() => {
+        commit('resetCount')
+      })
+    },
+
+    asyncSetValue ({commit}) {
+      setTimeout(() => {
+        commit('setValue')
+      })
     }
+  },
+  getters: {
+    setValue(state, num) {
+      return state.count = num;
+    },
   },
   modules: {},
 });

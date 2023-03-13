@@ -28,7 +28,7 @@
       <h4 style="color: #68707d; margin-bottom: 30px"><del>$250.00</del></h4>
       <div class="cart">
         <div class="counter-section">
-          <button class="decrea" @click="$store.commit('decreaseCount')">
+          <button class="decrea" @click="decrement">
             -
           </button>
           <div class="count">{{count}}</div>
@@ -37,7 +37,7 @@
           </button>
         </div>
 
-        <button class="btn" @click="$store.commit('resetCount')">
+        <button class="btn" @click="reset">
           <img class="broke" src="../assets/icon-cart.svg" />
           <div>Add to cart</div>
         </button>
@@ -45,15 +45,15 @@
       <div class="set-value">
         <input
           type="number"
-          v-model="anotherCount"
+          v-model="setvalue"
           placeholder="Set Number"
         />
-        <button @click="$store.commit('setValue')">Add Number</button>
+        <button @click="set(setvalue)">Add Number</button>
       </div>
     </div>
   </div>
 
-  <font-awesome-icon icon="fa-solid fa-bars" />
+
   <font-awesome-icon icon="fa-solid fa-xmark" />
 </template>
 
@@ -71,7 +71,12 @@ export default{
     
     loadedCount() {
       return this.$store.state.loadedCount;
+    },
+    setvalue(){
+      return this.$store.getters.setvalue;
     }
+
+
 
   },
 
@@ -79,7 +84,20 @@ export default{
   methods:{
     increment(){
       this.$store.dispatch("asyncIncrement");
-    }
+    },
+    decrement(){
+      this.$store.dispatch("asyncDecrement");
+    },
+
+    reset(){
+      this.$store.dispatch("asyncResetState");
+    },
+
+    // setvalue(){
+    //   this.$store.dispatch("asyncSetValue");
+    // }
+
+
   }
 }
 
