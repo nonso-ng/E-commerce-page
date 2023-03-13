@@ -1,11 +1,7 @@
-
 <template>
   <div class="hero">
     <div class="hero-left">
-      <img
-        style="width: 75%; height: 75%; border-radius: 2%"
-        src="../assets/image-product-1.jpg"
-      />
+      <img class="mobile" src="../assets/image-product-1.jpg" />
       <div class="hero-thumbnail">
         <img src="../assets/image-product-1-thumbnail.jpg" />
         <img src="../assets/image-product-2-thumbnail.jpg" />
@@ -16,9 +12,7 @@
       </div>
     </div>
     <div class="hero-right">
-      <h5>
-        SNEAKER COMPANY
-      </h5>
+      <h5>SNEAKER COMPANY</h5>
       <h1 style="font-weight: 800; margin-bottom: 30px; font-size: 45px">
         Fall Limited Edition<br />Sneakers
       </h1>
@@ -30,42 +24,68 @@
       <div class="price">
         <h2>$125.00</h2>
         <h4>50%</h4>
-        
       </div>
       <h4 style="color: #68707d; margin-bottom: 30px"><del>$250.00</del></h4>
       <div class="cart">
-        <button class="decrea" @click="$store.commit('decreaseCount')">-</button>
-        <div class="count">{{ $store.state.count }}</div>
-        <button class="increa" @click="$store.commit('increaseCount')">+</button>
+        <div class="counter-section">
+          <button class="decrea" @click="$store.commit('decreaseCount')">
+            -
+          </button>
+          <div class="count">{{count}}</div>
+          <button class="increa" @click="increment">
+            +
+          </button>
+        </div>
+
         <button class="btn" @click="$store.commit('resetCount')">
-          <img class="broke"  src="../assets/icon-cart.svg" />
-        <div>  Add to cart</div>
+          <img class="broke" src="../assets/icon-cart.svg" />
+          <div>Add to cart</div>
         </button>
       </div>
       <div class="set-value">
-        <input type="number" v-model="$store.state.anotherCount"  placeholder="Set Number"/>
+        <input
+          type="number"
+          v-model="anotherCount"
+          placeholder="Set Number"
+        />
         <button @click="$store.commit('setValue')">Add Number</button>
       </div>
-   
     </div>
   </div>
-  
+
   <font-awesome-icon icon="fa-solid fa-bars" />
   <font-awesome-icon icon="fa-solid fa-xmark" />
 </template>
 
-<script setup>
+<script>
+
+export default{
+  computed:{
+    count() {
+      return this.$store.state.count;
+    },
+
+    anotherCount() {
+      return this.$store.state.anotherCount;
+    },
+    
+    loadedCount() {
+      return this.$store.state.loadedCount;
+    }
+
+  },
+
+
+  methods:{
+    increment(){
+      this.$store.dispatch("asyncIncrement");
+    }
+  }
+}
+
+
 
 </script>
-
-
-
-
-
-
-
-
-
 
 <style scoped>
 .hero {
@@ -77,6 +97,11 @@
 
 .hero-left {
   margin: 10% 0% 0% 20%;
+}
+.hero-left img {
+  width: 75%;
+  height: 75%;
+  border-radius: 2%;
 }
 .hero-thumbnail {
   display: flex;
@@ -102,12 +127,11 @@
 .hero-right {
   margin: 15% 25% 0 10%;
 }
-.hero-right h5{
+.hero-right h5 {
   color: hsl(26, 100%, 55%);
   font-weight: 800;
   letter-spacing: 1.5px;
   margin-bottom: 20px;
-
 }
 
 .hero-right .price {
@@ -127,13 +151,17 @@
 .cart {
   display: flex;
 }
+.cart .counter-section{
+  display: flex;
+  
+}
 .cart .btn {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
   background-color: hsl(26, 100%, 55%);
-  width: 250px;
+  width: 50%;
   height: 50px;
   border: none;
   border-radius: 12px;
@@ -189,21 +217,20 @@
   padding-bottom: 7px;
 }
 
-.set-value{
+.set-value {
   margin-top: 10px;
-}
-.set-value input{
- width: 150px;
- height: 50px;
- border-radius: 10px;
- padding-left: 5px;
- border-color: hsl(26, 100%, 55%) ;
- 
 
 }
-.set-value button{
+.set-value input {
+  width: 50%;
+  height: 50px;
+  border-radius: 10px;
+  padding-left: 5px;
+  border-color: hsl(26, 100%, 55%);
+}
+.set-value button {
   background-color: hsl(26, 100%, 55%);
-  width: 150px;
+  width: 32%;
   height: 50px;
   border: none;
   border-radius: 12px;
@@ -212,5 +239,48 @@
   margin-left: 10px;
   font-family: "Kumbh Sans", sans-serif;
 }
-</style>
 
+@media (max-width: 800px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-left .hero-thumbnail {
+    display: none;
+  }
+  .hero-left {
+    margin: 0px 0px 0px 0px;
+  }
+  .hero-left img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0%;
+  }
+
+  .hero-right {
+    margin: 5% 0% 0% 5%;
+  }
+  .cart{
+    display: block;
+  }
+  .counter-section{
+    margin-bottom: 5%
+  }
+  .cart .btn{
+    width: 95%;
+    margin:auto 2px;
+  }
+  .cart .increa{
+    width: 35%;
+  }
+  .cart .count{
+    width: 25%;
+  }
+  .cart .decrea{
+    width: 35%;
+  }
+  .set-value button{
+    width: 40%;
+  }
+}
+</style>

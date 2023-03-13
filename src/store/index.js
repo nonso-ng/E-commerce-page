@@ -30,6 +30,12 @@ export default createStore({
 
     // }
   },
-  actions: {},
+  actions: {
+    asyncIncrement ({commit}) {
+      setTimeout(() => {
+        commit('increaseCount')
+      })
+    }
+  },
   modules: {},
 });

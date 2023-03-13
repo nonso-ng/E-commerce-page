@@ -64,12 +64,19 @@ export default{
   display: none;
 }
 
-@media(max-width:600px){
+@media(max-width:800px){
   .toggle{
     display: flex;
+    margin-left: 25px;
+    margin-right: 10px;
   }
   .cart-display{
     display: none;
+  }
+  .avatar{
+    width: 10%;
+  height: 10%;
+  
   }
 }
 .cart-display{
@@ -99,8 +106,8 @@ export default{
   cursor: pointer;
 }
 .avatar{
-  width: 40%;
-  height: 40%;
+  width: 30%;
+  height: 30%;
   border-radius: 50%;
   border: 2px solid white;
   cursor: pointer;
@@ -117,7 +124,7 @@ export default{
   font-family: 'Kumbh Sans', sans-serif;
   margin-left: 20%;
 }
-@media(max-width:600px){
+@media(max-width:800px){
   .list{
     display: none;
   }
