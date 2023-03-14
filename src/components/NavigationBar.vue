@@ -28,12 +28,17 @@
 </template>
 
 <script>
+
+import  useCounter  from "../composables/counter";
 export default{
-  computed:{
-    loadedCount(){
-      return(this.$store.state.loadedCount)
-    }
-  }
+  setup() {
+
+const {loadedCount} = useCounter()
+
+return {loadedCount}
+},
+
+
 }
 </script>
 

@@ -28,11 +28,11 @@
       <h4 style="color: #68707d; margin-bottom: 30px"><del>$250.00</del></h4>
       <div class="cart">
         <div class="counter-section">
-          <button class="decrea" @click="decrement">
+          <button class="decrea" @click="decrease">
             -
           </button>
-          <div class="count">{{count}}</div>
-          <button class="increa" @click="increment">
+          <div class="count">{{ mycount }}</div>
+          <button class="increa"  @click="increase">
             +
           </button>
         </div>
@@ -45,10 +45,10 @@
       <div class="set-value">
         <input
           type="number"
-          v-model="setvalue"
-          placeholder="Set Number"
+          v-model="$store.state.anotherCount"
+          placeholder="Enter Number"
         />
-        <button @click="set(setvalue)">Add Number</button>
+        <button @click="setValue">Add Number</button>
       </div>
     </div>
   </div>
@@ -59,46 +59,36 @@
 
 <script>
 
+import  useCounter  from "../composables/counter";
+
+
 export default{
-  computed:{
-    count() {
-      return this.$store.state.count;
-    },
+ setup() {
 
-    anotherCount() {
-      return this.$store.state.anotherCount;
-    },
-    
-    loadedCount() {
-      return this.$store.state.loadedCount;
-    },
-    setvalue(){
-      return this.$store.getters.setvalue;
-    }
+  const {increase,decrease,reset,setValue,mycount} = useCounter()
+
+  return {increase,decrease,reset,setValue,mycount}
+ },
 
 
+  // methods:{
+  //   increment(){
+  //     this.$store.dispatch("asyncIncrement");
+  //   },
+  //   decrement(){
+  //     this.$store.dispatch("asyncDecrement");
+  //   },
 
-  },
+  //   reset(){
+  //     this.$store.dispatch("asyncResetState");
+  //   },
 
-
-  methods:{
-    increment(){
-      this.$store.dispatch("asyncIncrement");
-    },
-    decrement(){
-      this.$store.dispatch("asyncDecrement");
-    },
-
-    reset(){
-      this.$store.dispatch("asyncResetState");
-    },
-
-    // setvalue(){
-    //   this.$store.dispatch("asyncSetValue");
-    // }
+  //   setvalue(){
+  //     this.$store.dispatch("asyncSetValue");
+  //   }
 
 
-  }
+  // }
 }
 
 
