@@ -1,11 +1,10 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state:{
+  state: {
     count: 0,
     anotherCount: "",
     loadedCount: 0,
-
   },
 
   mutations: {
@@ -20,40 +19,30 @@ export default createStore({
     resetCount(state) {
       state.loadedCount = state.count;
       state.count = 0;
-    
     },
-     
-    setCount (state) {
+
+    setCount(state) {
       state.count = state.anotherCount;
-      state.anotherCount="";
+      state.anotherCount = "";
+    },
+  },
+
+  actions: {
+    Increment({ commit }) {
+      commit("increaseCount");
     },
 
+    Decrement({ commit }) {
+      commit("decreaseCount");
+    },
+    ResetValue({ commit }) {
+      commit("resetCount");
+    },
+    SetValue({ commit }) {
+      commit("setCount");
+    },
   },
-  // actions: {
-  //   asyncIncrement ({commit}) {
-  //     setTimeout(() => {
-  //       commit('increaseCount')
-  //     })
-  //   },
 
-  //   asyncDecrement ({commit}) {
-  //     setTimeout(() => {
-  //       commit('decreaseCount')
-  //     })
-  //   },
-
-  //   asyncResetState ({commit}) {
-  //     setTimeout(() => {
-  //       commit('resetCount')
-  //     })
-  //   },
-
-  //   asyncSetValue ({commit}) {
-  //     setTimeout(() => {
-  //       commit('setValue')
-  //     })
-  //   }
- // },
   // getters: {
   //   setValue(state, num) {
   //     return state.count = ;

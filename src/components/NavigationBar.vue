@@ -1,10 +1,10 @@
 <template>
   <div class="navbar">
     <div class="top-left">
-      <font-awesome-icon icon="fa-solid fa-bars" size="lg"  class="toggle"/>
+      <font-awesome-icon icon="fa-solid fa-bars" size="lg" class="toggle" />
       <img src="../assets/logo.svg" />
       <div class="list">
-        <ul style="color: #68707d;">
+        <ul style="color: #68707d">
           <li>Collections</li>
           <li>Men</li>
           <li>Women</li>
@@ -16,30 +16,29 @@
 
     <div class="top-right">
       <div class="cart-display">
-        <img class="cart" style="height: 25px; width: 25px;" src="../assets/icon-cart.svg" />
-        <div class="top-right-display" >{{ loadedCount}}</div>
+        <img
+          class="cart"
+          style="height: 25px; width: 25px"
+          src="../assets/icon-cart.svg"
+        />
+        <div class="top-right-display">{{ loadedCount }}</div>
       </div>
-    
+
       <img class="avatar" src="../assets/image-avatar.png" />
-     
     </div>
   </div>
   <hr />
 </template>
 
 <script>
-
-import  useCounter  from "../composables/counter";
-export default{
+import useCounter from "../composables/counter";
+export default {
   setup() {
+    const { loadedCount } = useCounter();
 
-const {loadedCount} = useCounter()
-
-return {loadedCount}
-},
-
-
-}
+    return { loadedCount };
+  },
+};
 </script>
 
 <style scoped>
@@ -50,44 +49,42 @@ return {loadedCount}
   margin: 1.3% 0% 1.3% 0%;
 }
 
-.top-left{
-    display: flex;
-    align-items: center;
+.top-left {
+  display: flex;
+  align-items: center;
 }
 
-.top-left img{
-    align-items: center;
+.top-left img {
+  align-items: center;
 }
-.top-right{
+.top-right {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15%;
- 
 }
-.toggle{
+.toggle {
   display: none;
 }
 
-@media(max-width:800px){
-  .toggle{
+@media (max-width: 800px) {
+  .toggle {
     display: flex;
     margin-left: 25px;
     margin-right: 10px;
   }
-  .cart-display{
+  .cart-display {
     display: none;
   }
-  .avatar{
+  .avatar {
     width: 10%;
-  height: 10%;
-  
+    height: 10%;
   }
 }
-.cart-display{
+.cart-display {
   display: flex;
 }
-.top-right-display{
+.top-right-display {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,22 +92,21 @@ return {loadedCount}
   color: white;
   width: 20px;
   height: 20px;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: "Kumbh Sans", sans-serif;
   font-weight: 500;
   font-size: small;
   border-radius: 45%;
   position: relative;
   right: 10px;
-
-  
 }
 
- .cart {
+.cart {
   margin-bottom: 4px;
-  filter: invert(1%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+  filter: invert(1%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%)
+    contrast(100%);
   cursor: pointer;
 }
-.avatar{
+.avatar {
   width: 30%;
   height: 30%;
   border-radius: 50%;
@@ -118,19 +114,18 @@ return {loadedCount}
   cursor: pointer;
   transition: 0.4s all ease;
 }
-.avatar:hover{
+.avatar:hover {
   border: 2px solid hsl(26, 100%, 55%);
   border-radius: 50%;
-
 }
 
 .list ul {
   display: flex;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: "Kumbh Sans", sans-serif;
   margin-left: 20%;
 }
-@media(max-width:800px){
-  .list{
+@media (max-width: 800px) {
+  .list {
     display: none;
   }
 }
@@ -138,6 +133,4 @@ return {loadedCount}
   margin-right: 18%;
   list-style: none;
 }
-
-
 </style>

@@ -28,13 +28,9 @@
       <h4 style="color: #68707d; margin-bottom: 30px"><del>$250.00</del></h4>
       <div class="cart">
         <div class="counter-section">
-          <button class="decrea" @click="decrease">
-            -
-          </button>
+          <button class="decrea" @click="decrease">-</button>
           <div class="count">{{ mycount }}</div>
-          <button class="increa"  @click="increase">
-            +
-          </button>
+          <button class="increa" @click="increase">+</button>
         </div>
 
         <button class="btn" @click="reset">
@@ -53,46 +49,19 @@
     </div>
   </div>
 
-
   <font-awesome-icon icon="fa-solid fa-xmark" />
 </template>
 
 <script>
+import useCounter from "../composables/counter";
 
-import  useCounter  from "../composables/counter";
+export default {
+  setup() {
+    const { increase, decrease, reset, setValue, mycount } = useCounter();
 
-
-export default{
- setup() {
-
-  const {increase,decrease,reset,setValue,mycount} = useCounter()
-
-  return {increase,decrease,reset,setValue,mycount}
- },
-
-
-  // methods:{
-  //   increment(){
-  //     this.$store.dispatch("asyncIncrement");
-  //   },
-  //   decrement(){
-  //     this.$store.dispatch("asyncDecrement");
-  //   },
-
-  //   reset(){
-  //     this.$store.dispatch("asyncResetState");
-  //   },
-
-  //   setvalue(){
-  //     this.$store.dispatch("asyncSetValue");
-  //   }
-
-
-  // }
-}
-
-
-
+    return { increase, decrease, reset, setValue, mycount };
+  },
+};
 </script>
 
 <style scoped>
@@ -159,9 +128,8 @@ export default{
 .cart {
   display: flex;
 }
-.cart .counter-section{
+.cart .counter-section {
   display: flex;
-  
 }
 .cart .btn {
   display: flex;
@@ -227,7 +195,6 @@ export default{
 
 .set-value {
   margin-top: 10px;
-
 }
 .set-value input {
   width: 50%;
@@ -268,26 +235,26 @@ export default{
   .hero-right {
     margin: 5% 0% 0% 5%;
   }
-  .cart{
+  .cart {
     display: block;
   }
-  .counter-section{
-    margin-bottom: 5%
+  .counter-section {
+    margin-bottom: 5%;
   }
-  .cart .btn{
+  .cart .btn {
     width: 95%;
-    margin:auto 2px;
+    margin: auto 2px;
   }
-  .cart .increa{
+  .cart .increa {
     width: 35%;
   }
-  .cart .count{
+  .cart .count {
     width: 25%;
   }
-  .cart .decrea{
+  .cart .decrea {
     width: 35%;
   }
-  .set-value button{
+  .set-value button {
     width: 40%;
   }
 }
