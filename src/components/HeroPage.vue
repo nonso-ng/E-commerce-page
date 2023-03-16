@@ -39,12 +39,8 @@
         </button>
       </div>
       <div class="set-value">
-        <input
-          type="number"
-          v-model="$store.state.anotherCount"
-          placeholder="Enter Number"
-        />
-        <button @click="setValue">Add Number</button>
+        <input type="number" v-model="payload" placeholder="Enter Number" />
+        <button @click="setValueHandler">Add Number</button>
       </div>
     </div>
   </div>
@@ -54,12 +50,17 @@
 
 <script>
 import useCounter from "../composables/counter";
+import { ref } from "vue";
 
 export default {
   setup() {
     const { increase, decrease, reset, setValue, mycount } = useCounter();
-
-    return { increase, decrease, reset, setValue, mycount };
+    const payload = ref("");
+    const setValueHandler = () => {
+      setValue(+payload.value);
+      payload.value = "";
+    };
+    return { increase, decrease, reset, setValueHandler, payload, mycount };
   },
 };
 </script>

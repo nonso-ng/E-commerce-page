@@ -21,9 +21,10 @@ export default createStore({
       state.count = 0;
     },
 
-    setCount(state) {
-      state.count = state.anotherCount;
-      state.anotherCount = "";
+    setCount(state,payload) {
+      state.count = payload;
+      // state.count = state.anotherCount;
+      // state.anotherCount = "";
     },
   },
 
@@ -34,12 +35,14 @@ export default createStore({
 
     Decrement({ commit }) {
       commit("decreaseCount");
+      
     },
     ResetValue({ commit }) {
       commit("resetCount");
     },
-    SetValue({ commit }) {
-      commit("setCount");
+    SetValue({commit}, payload) {
+      commit("setCount",payload);
+    
     },
   },
 
