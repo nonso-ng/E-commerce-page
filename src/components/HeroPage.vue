@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <font-awesome-icon icon="fa-solid fa-xmark" />
+  
 </template>
 
 <script>

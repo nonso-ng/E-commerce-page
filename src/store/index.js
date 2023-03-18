@@ -3,7 +3,6 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     count: 0,
-    anotherCount: "",
     loadedCount: 0,
   },
 
@@ -23,8 +22,7 @@ export default createStore({
 
     setCount(state,payload) {
       state.count = payload;
-      // state.count = state.anotherCount;
-      // state.anotherCount = "";
+  
     },
   },
 

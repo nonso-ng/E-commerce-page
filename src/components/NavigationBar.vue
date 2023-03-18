@@ -4,7 +4,9 @@
       <font-awesome-icon icon="fa-solid fa-bars" size="lg" class="toggle" />
       <img src="../assets/logo.svg" />
       <div class="list">
+        
         <ul style="color: #68707d">
+          <font-awesome-icon icon="fa-solid fa-xmark" class="close-menu"  style="color: black; font-size: 2rem; "/>
           <li>Collections</li>
           <li>Men</li>
           <li>Women</li>
@@ -31,6 +33,7 @@
 </template>
 
 <script>
+
 import useCounter from "../composables/counter";
 export default {
   setup() {
@@ -38,6 +41,7 @@ export default {
 
     return { loadedCount };
   },
+ 
 };
 </script>
 
@@ -64,6 +68,9 @@ export default {
   gap: 15%;
 }
 .toggle {
+  display: none;
+}
+ul .close-menu{
   display: none;
 }
 
@@ -127,6 +134,42 @@ export default {
 @media (max-width: 800px) {
   .list {
     display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, .5);
+    min-height: 100vh;
+    position: absolute;
+    width: 100vw;
+    top: -100%;
+    padding: 0;
+    z-index: 500;
+    margin: 0;
+  }
+  .list ul{
+    flex-direction: column;
+    gap: 5vh;
+    
+    margin-left: 0;
+    background-color: white;
+    justify-content: flex-start;
+    width: 60vw;
+    height: 90vh;
+    padding-left:6vw ;
+    padding-top: 10vh;
+   
+  }
+  ul .close-menu{
+    display: none;
+    width: 10%;
+    margin-top: -7vh;
+    margin-bottom: 6vh;
+    
+  }
+  li{
+    font-weight: 700;
+    color: black;
+  }
+  .top-left{
+    position: relative;
   }
 }
 .list ul li {
