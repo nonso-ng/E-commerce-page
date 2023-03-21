@@ -1,12 +1,31 @@
 <template>
   <div class="navbar">
     <div class="top-left">
-      <font-awesome-icon icon="fa-solid fa-bars" size="lg" class="toggle" />
+      <font-awesome-icon
+        icon="fa-solid fa-bars"
+        size="lg"
+        class="toggle"
+        @click="handleShow"
+      />
       <img src="../assets/logo.svg" />
-      <div class="list">
-        
+      <div class="list" v-show="show">
         <ul style="color: #68707d">
-          <font-awesome-icon icon="fa-solid fa-xmark" class="close-menu"  style="color: black; font-size: 2rem; "/>
+          <li>Collections</li>
+          <li>Men</li>
+          <li>Women</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+
+      <div class="mobile-list" v-show="close">
+        <ul>
+          <font-awesome-icon
+            icon="fa-solid fa-xmark"
+            class="close-menu"
+            style="color: black; font-size: 2rem"
+            @click="handleClose"
+          />
           <li>Collections</li>
           <li>Men</li>
           <li>Women</li>
@@ -33,15 +52,29 @@
 </template>
 
 <script>
-
 import useCounter from "../composables/counter";
 export default {
+  data() {
+    return {
+      show: true,
+      close: false,
+    };
+  },
+
+  methods: {
+    handleClose() {
+      this.close = !this.close;
+    },
+    handleShow() {
+      this.close = true;
+    },
+  },
+
   setup() {
     const { loadedCount } = useCounter();
 
     return { loadedCount };
   },
- 
 };
 </script>
 
@@ -70,11 +103,20 @@ export default {
 .toggle {
   display: none;
 }
-ul .close-menu{
+.list-mobile ul .close-menu {
+  display: flex;
+}
+
+.mobile-list {
   display: none;
 }
 
 @media (max-width: 800px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+  }
   .toggle {
     display: flex;
     margin-left: 25px;
@@ -86,6 +128,48 @@ ul .close-menu{
   .avatar {
     width: 10%;
     height: 10%;
+  }
+
+  .list {
+    display: none;
+  }
+  .mobile-list {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 155vh;
+    position: absolute;
+    width: 100vw;
+    top: -100%;
+    padding: 0;
+    z-index: 500;
+    margin: 0;
+  }
+  .mobile-list ul {
+    flex-direction: column;
+    margin-left: 0;
+    background-color: white;
+    justify-content: flex-start;
+    width: 60vw;
+    height: 145vh;
+    padding-left: 6vw;
+    padding-top: 10vh;
+    font-family: "Kumbh Sans", sans-serif;
+  }
+  .mobile-list ul .close-menu {
+    display: flex;
+    width: 10%;
+    margin-top: -6vh;
+    margin-bottom: 9vh;
+  }
+  .mobile-list ul li {
+    font-weight: 700;
+    color: black;
+    list-style: none;
+    margin-bottom: 20%;
+  }
+  .top-left {
+    position: relative;
   }
 }
 .cart-display {
@@ -131,47 +215,7 @@ ul .close-menu{
   font-family: "Kumbh Sans", sans-serif;
   margin-left: 20%;
 }
-@media (max-width: 800px) {
-  .list {
-    display: none;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, .5);
-    min-height: 100vh;
-    position: absolute;
-    width: 100vw;
-    top: -100%;
-    padding: 0;
-    z-index: 500;
-    margin: 0;
-  }
-  .list ul{
-    flex-direction: column;
-    gap: 5vh;
-    
-    margin-left: 0;
-    background-color: white;
-    justify-content: flex-start;
-    width: 60vw;
-    height: 90vh;
-    padding-left:6vw ;
-    padding-top: 10vh;
-   
-  }
-  ul .close-menu{
-    display: none;
-    width: 10%;
-    margin-top: -7vh;
-    margin-bottom: 6vh;
-    
-  }
-  li{
-    font-weight: 700;
-    color: black;
-  }
-  .top-left{
-    position: relative;
-  }
-}
+
 .list ul li {
   margin-right: 18%;
   list-style: none;
