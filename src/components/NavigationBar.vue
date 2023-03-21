@@ -7,7 +7,8 @@
         class="toggle"
         @click="handleShow"
       />
-      <img src="../assets/logo.svg" />
+      <router-link :to="{name:'home'}"><img src="../assets/logo.svg" /></router-link>
+      
       <div class="list" v-show="show">
         <ul style="color: #68707d">
           <li>Collections</li>
