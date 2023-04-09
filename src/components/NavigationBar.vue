@@ -42,11 +42,24 @@
           class="cart"
           style="height: 25px; width: 25px"
           src="../assets/icon-cart.svg"
+          @click="handleClosePop"
+          
         />
         <div class="top-right-display">{{ loadedCount }}</div>
       </div>
 
       <img class="avatar" src="../assets/image-avatar.png" />
+    </div>
+
+
+    <div class="pop-out hidden" v-show="closePop">
+      <h3>Cart</h3>
+      <hr/>
+      <p>Cart is Empty</p>
+      <font-awesome-icon icon="fa-solid fa-trash-can"  style="color: #68707d;"/>
+      <button class="btn">Checkout</button>
+     
+
     </div>
   </div>
   <hr />
@@ -59,6 +72,8 @@ export default {
     return {
       show: true,
       close: false,
+      closePop: false,
+      showPop: true,
     };
   },
 
@@ -69,6 +84,9 @@ export default {
     handleShow() {
       this.close = true;
     },
+    handleClosePop(){
+      this.closePop = !this.closePop
+    }
   },
 
   setup() {
@@ -101,6 +119,44 @@ export default {
   align-items: center;
   gap: 15%;
 }
+
+
+.pop-out{
+  position: absolute;
+  top: 9%;
+  right: 5%;
+  width: 30%;
+  height: 25%;
+  background-color: white;
+  color:#68707d;
+  font-family: "Kumbh Sans", sans-serif;
+  border-radius: 15px;
+  padding: 1.2%;
+  box-shadow: 23px 22px 23px 0px rgba(0,0,0,0.1),-13px -14px 15px -3px rgba(0,0,0,0.1);
+}
+
+.pop-out h3{
+  margin-bottom: 3.5%;
+}
+.pop-out p{
+  margin-top: 5%;
+}
+
+
+.pop-out .btn{
+  background-color: hsl(26, 100%, 55%);
+  width: 100%;
+  height: 25%;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  /* margin-left: 10px; */
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: bold;
+  font-size:large;
+  margin-top: 8%;
+}
 .toggle {
   display: none;
 }
@@ -111,6 +167,7 @@ export default {
 .mobile-list {
   display: none;
 }
+
 
 @media (max-width: 800px) {
   .navbar {

@@ -42,10 +42,32 @@
         <input type="number" v-model="payload" placeholder="Enter Number" />
         <button @click="setValueHandler">Add Number</button>
       </div>
+      <div class="lightbox hidden">
+        <font-awesome-icon icon="fa-solid fa-angle-right" />
+        <font-awesome-icon icon="fa-sharp fa-solid fa-angle-left" />
+        <font-awesome-icon icon="fa-solid fa-xmark" />
+        
+
+        <div class="lightbox-img">
+          <img class="close-modal" src="../assets/icon-close.svg" />
+
+          <div class="image-modal">
+            <img class="big" src="../assets/image-product-1.jpg" />
+          </div>
+          
+          <div class="lightbox-thumbnail">
+            <img src="../assets/image-product-1-thumbnail.jpg" />
+            <img src="../assets/image-product-2-thumbnail.jpg" />
+
+            <img src="../assets/image-product-3-thumbnail.jpg" />
+
+            <img src="../assets/image-product-4-thumbnail.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="overlay hidden"></div>
     </div>
   </div>
-
-  
 </template>
 
 <script>
@@ -214,6 +236,80 @@ export default {
   cursor: pointer;
   margin-left: 10px;
   font-family: "Kumbh Sans", sans-serif;
+}
+.hidden{
+  display: none;
+}
+
+.lightbox {
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
+  position: absolute;
+   top: 0%;
+  left: 0%;
+  width: 100%;
+  
+  z-index: 10;
+  margin-top: 6.5%;
+}
+
+
+
+.lightbox-img{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+}
+.close-modal{
+margin-bottom: 1.5%;
+margin-left:28% ;
+width: 1.5%;
+height: 3.5%;
+}
+.image-modal{
+  width: 30%;
+  height: 80%;
+}
+.big{
+  width: 100%;
+  height: 100%;
+  border-radius: 2%;
+}
+.lightbox-thumbnail {
+  display: flex;
+  width: 30%;
+
+  justify-content: space-around;
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.lightbox-thumbnail img {
+  width: 15%;
+  height: 100%;
+  border-radius: 10%;
+  transition: 0.4s all ease;
+  border: 2px solid none;
+}
+/* .lightbox-thumbnail img:hover {
+  border: 2px solid hsl(26, 100%, 55%);
+  background-color: #ffffff;
+  opacity: 0.7;
+}  */
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 5;
 }
 
 @media (max-width: 800px) {

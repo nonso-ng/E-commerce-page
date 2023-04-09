@@ -8,8 +8,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faBars, faXmark)
+
+library.add(faBars, faXmark,  faTrashCan,faAngleLeft, faAngleRight)
 
 
 
