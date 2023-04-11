@@ -88,7 +88,7 @@ export default {
 
   data() {
     return {
-      modal: true,
+      modal: false,
     };
   },
 
