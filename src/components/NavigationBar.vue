@@ -194,7 +194,6 @@ export default {
   border-radius: 12px;
   color: white;
   cursor: pointer;
-  /* margin-left: 10px; */
   font-family: "Kumbh Sans", sans-serif;
   font-weight: bold;
   font-size: medium;

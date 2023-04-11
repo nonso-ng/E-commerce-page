@@ -48,9 +48,15 @@
       </div>
       <div class="lightbox hidden" v-show="modal">
         <div class="arrow-left">
-          <font-awesome-icon icon="fa-solid fa-angle-left" />
+          <font-awesome-icon icon="fa-solid fa-angle-left" class="icon" />
         </div>
         <div class="lightbox-img">
+          <font-awesome-icon
+            icon="fa-solid fa-xmark"
+            class="close-modal"
+            style="font-size: 2rem"
+            @click="handleModal"
+          />
           <div class="image-modal">
             <img class="big" src="../assets/image-product-1.jpg" />
           </div>
@@ -64,7 +70,9 @@
             <img src="../assets/image-product-4-thumbnail.jpg" />
           </div>
         </div>
-        <font-awesome-icon icon="fa-solid fa-angle-right" class="arrow-right" />
+        <div class="arrow-right">
+          <font-awesome-icon icon="fa-solid fa-angle-right" class="icon" />
+        </div>
       </div>
       <div class="overlay hidden" v-show="modal"></div>
     </div>
@@ -262,23 +270,43 @@ export default {
 }
 
 .arrow-right {
+  position: absolute;
+  right: 33%;
+  top: 38%;
   background-color: white;
-  width: 1%;
-  height: 0.3%;
-  padding: 0.7% 1.3% 0.7% 1.3%;
-  border-radius: 100%;
+  width: 4%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.icon {
+  width: 40%;
+  height: 40%;
+}
+
+.icon:hover {
+  color: hsl(26, 100%, 55%);
 }
 .arrow-left {
   position: absolute;
-  left: 32%;
-  top: 35%;
+  left: 33%;
+  top: 38%;
   background-color: white;
-  width: 1%;
-  height: 0.3%;
-  padding: 0.7% 1.3% 0.7% 1.3%;
-  border-radius: 100%;
+  width: 4%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 
+/* .arrow-left .icon {
+  width: 40%;
+  height: 40%;
+} */
 .lightbox-img {
   display: flex;
   flex-direction: column;
@@ -293,6 +321,10 @@ export default {
   height: 3.5%;
   color: white;
   font-weight: bolder;
+}
+
+.close-modal:hover {
+  color: hsl(26, 100%, 55%);
 }
 .image-modal {
   display: flex;
