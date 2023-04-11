@@ -5,6 +5,7 @@ const useCounter = () => {
   const store = useStore();
   const mycount = computed(() => store.state.count);
   const loadedCount = computed(() => store.state.loadedCount);
+  const price = computed(() => store.state.price);
   
   const increase = () => {
     store.dispatch("Increment");
@@ -19,7 +20,8 @@ const useCounter = () => {
   const setValue = (newValue) => {
     store.dispatch("SetValue",newValue);
   };
-  return { increase, decrease, reset, setValue, mycount, loadedCount };
+
+  return { increase, decrease, reset, setValue, mycount, loadedCount, price,};
 };
 
 export default useCounter;

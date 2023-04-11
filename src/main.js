@@ -13,7 +13,7 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 
-library.add(faBars, faXmark,  faTrashCan,faAngleLeft, faAngleRight)
+library.add(faBars, faXmark, faTrashCan,faAngleLeft, faAngleRight)
 
 
 

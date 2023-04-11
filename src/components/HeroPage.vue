@@ -1,7 +1,11 @@
 <template>
   <div class="hero">
     <div class="hero-left">
-      <img class="mobile" src="../assets/image-product-1.jpg" />
+      <img
+        class="mobile"
+        src="../assets/image-product-1.jpg"
+        @click="handleModal"
+      />
       <div class="hero-thumbnail">
         <img src="../assets/image-product-1-thumbnail.jpg" />
         <img src="../assets/image-product-2-thumbnail.jpg" />
@@ -42,19 +46,17 @@
         <input type="number" v-model="payload" placeholder="Enter Number" />
         <button @click="setValueHandler">Add Number</button>
       </div>
-      <div class="lightbox hidden">
-        <font-awesome-icon icon="fa-solid fa-angle-right" />
-        <font-awesome-icon icon="fa-sharp fa-solid fa-angle-left" />
-        <font-awesome-icon icon="fa-solid fa-xmark" />
+      <div class="lightbox hidden" v-show="modal">
         
-
         <div class="lightbox-img">
-          <img class="close-modal" src="../assets/icon-close.svg" />
-
+          <font-awesome-icon icon="fa-solid fa-xmark" class="close-modal" @click="handleModal" />
+          <div>
+            
+          </div>
           <div class="image-modal">
             <img class="big" src="../assets/image-product-1.jpg" />
           </div>
-          
+
           <div class="lightbox-thumbnail">
             <img src="../assets/image-product-1-thumbnail.jpg" />
             <img src="../assets/image-product-2-thumbnail.jpg" />
@@ -63,9 +65,12 @@
 
             <img src="../assets/image-product-4-thumbnail.jpg" />
           </div>
+          
         </div>
+        <font-awesome-icon icon="fa-solid fa-angle-right"  class="arrow-right"/>
+        <font-awesome-icon icon="fa-solid fa-angle-left" class="arrow-left"/>
       </div>
-      <div class="overlay hidden"></div>
+      <div class="overlay hidden" v-show="modal"></div>
     </div>
   </div>
 </template>
@@ -83,6 +88,18 @@ export default {
       payload.value = "";
     };
     return { increase, decrease, reset, setValueHandler, payload, mycount };
+  },
+
+  data() {
+    return {
+      modal: true,
+    };
+  },
+
+  methods: {
+    handleModal() {
+      this.modal = !this.modal;
+    },
   },
 };
 </script>
@@ -237,43 +254,53 @@ export default {
   margin-left: 10px;
   font-family: "Kumbh Sans", sans-serif;
 }
-.hidden{
-  display: none;
-}
 
 .lightbox {
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column; */
+
   position: absolute;
-   top: 0%;
+  top: 0%;
   left: 0%;
   width: 100%;
-  
+
   z-index: 10;
   margin-top: 6.5%;
 }
 
+.arrow-right{
+  background-color: white;
+  width: 1%;
+  height: .3%;
+  padding: .7% 1.3% .7% 1.3%;
+  border-radius: 100%;
+}
+.arrow-left{
+  background-color: white;
+  width: 1%;
+  height: .3%;
+  padding: .7% 1.3% .7% 1.3%;
+  border-radius: 100%;
+}
 
-
-.lightbox-img{
+.lightbox-img {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
   height: 80vh;
 }
-.close-modal{
-margin-bottom: 1.5%;
-margin-left:28% ;
-width: 1.5%;
-height: 3.5%;
+.close-modal {
+  margin-bottom: 1.5%;
+  margin-left: 28%;
+  width: 1.5%;
+  height: 3.5%;
+  color: white;
+  font-weight: bolder;
 }
-.image-modal{
+.image-modal {
   width: 30%;
   height: 80%;
 }
-.big{
+.big {
   width: 100%;
   height: 100%;
   border-radius: 2%;
@@ -300,7 +327,6 @@ height: 3.5%;
   background-color: #ffffff;
   opacity: 0.7;
 }  */
-
 
 .overlay {
   position: absolute;

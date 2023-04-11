@@ -7,8 +7,10 @@
         class="toggle"
         @click="handleShow"
       />
-      <router-link :to="{name:'home'}"><img src="../assets/logo.svg" /></router-link>
-      
+      <router-link :to="{ name: 'home' }"
+        ><img src="../assets/logo.svg"
+      /></router-link>
+
       <div class="list" v-show="show">
         <ul style="color: #68707d">
           <li>Collections</li>
@@ -42,8 +44,7 @@
           class="cart"
           style="height: 25px; width: 25px"
           src="../assets/icon-cart.svg"
-          @click="handleClosePop"
-          
+          @click="handlePop"
         />
         <div class="top-right-display">{{ loadedCount }}</div>
       </div>
@@ -51,15 +52,32 @@
       <img class="avatar" src="../assets/image-avatar.png" />
     </div>
 
-
-    <div class="pop-out hidden" v-show="closePop">
+    <div class="pop-out hidden" v-show="popup">
       <h3>Cart</h3>
-      <hr/>
-      <p>Cart is Empty</p>
-      <font-awesome-icon icon="fa-solid fa-trash-can"  style="color: #68707d;"/>
-      <button class="btn">Checkout</button>
-     
+      <hr />
 
+      <div v-if="loadedCount > 0">
+        <div class="pop-menu">
+          <img src="../assets/image-product-1-thumbnail.jpg" />
+          <div class="pop-paragraph">
+            <p>
+              Fall Limited Edition Sneakers <br />${{ price }}.00 x
+              {{ loadedCount }} =
+              <span style="font-weight: bolder; color: black">
+                ${{ price * loadedCount }}.00</span
+              >
+            </p>
+          </div>
+
+          <font-awesome-icon
+            icon="fa-solid fa-trash-can"
+            style="color: #68707d"
+          />
+        </div>
+        <button class="btn">Checkout</button>
+      </div>
+
+      <p v-if="!loadedCount > 0">Your Cart is Empty</p>
     </div>
   </div>
   <hr />
@@ -72,8 +90,7 @@ export default {
     return {
       show: true,
       close: false,
-      closePop: false,
-      showPop: true,
+      popup: true,
     };
   },
 
@@ -84,15 +101,18 @@ export default {
     handleShow() {
       this.close = true;
     },
-    handleClosePop(){
-      this.closePop = !this.closePop
-    }
+    handlePop() {
+      this.popup = !this.popup;
+    },
+    handlePopMenu() {
+      this.loadedCount > 0 ? `this is good` : `baaad`;
+    },
   },
 
   setup() {
-    const { loadedCount } = useCounter();
+    const { loadedCount, price } = useCounter();
 
-    return { loadedCount };
+    return { loadedCount, price };
   },
 };
 </script>
@@ -120,30 +140,44 @@ export default {
   gap: 15%;
 }
 
-
-.pop-out{
+.pop-out {
   position: absolute;
   top: 9%;
   right: 5%;
-  width: 30%;
-  height: 25%;
+  width: 20%;
+  height: 23%;
   background-color: white;
-  color:#68707d;
+  color: #68707d;
   font-family: "Kumbh Sans", sans-serif;
   border-radius: 15px;
   padding: 1.2%;
-  box-shadow: 23px 22px 23px 0px rgba(0,0,0,0.1),-13px -14px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 23px 22px 23px 0px rgba(0, 0, 0, 0.1),
+    -13px -14px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.pop-out h3{
+.pop-out h3 {
   margin-bottom: 3.5%;
 }
-.pop-out p{
+.pop-out p {
   margin-top: 5%;
 }
+.pop-menu {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pop-menu img {
+  width: 14%;
+  height: 14%;
+  border-radius: 4px;
+}
 
+.pop-paragraph p {
+  line-height: 1.4;
+}
 
-.pop-out .btn{
+.pop-out .btn {
   background-color: hsl(26, 100%, 55%);
   width: 100%;
   height: 25%;
@@ -154,7 +188,7 @@ export default {
   /* margin-left: 10px; */
   font-family: "Kumbh Sans", sans-serif;
   font-weight: bold;
-  font-size:large;
+  font-size: medium;
   margin-top: 8%;
 }
 .toggle {
@@ -167,7 +201,6 @@ export default {
 .mobile-list {
   display: none;
 }
-
 
 @media (max-width: 800px) {
   .navbar {

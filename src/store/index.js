@@ -4,6 +4,8 @@ export default createStore({
   state: {
     count: 0,
     loadedCount: 0,
+    price: 125,
+
   },
 
   mutations: {
@@ -22,8 +24,11 @@ export default createStore({
 
     setCount(state,payload) {
       state.count = payload;
-  
     },
+    finalCost(state){
+      state.loadedCount * state.price
+    }
+
   },
 
   actions: {
@@ -42,6 +47,9 @@ export default createStore({
       commit("setCount",payload);
     
     },
+    FinalCost({commit}){
+      commit("finalCost");
+    }
   },
 
   // getters: {
