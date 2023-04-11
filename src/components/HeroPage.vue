@@ -47,12 +47,10 @@
         <button @click="setValueHandler">Add Number</button>
       </div>
       <div class="lightbox hidden" v-show="modal">
-        
+        <div class="arrow-left">
+          <font-awesome-icon icon="fa-solid fa-angle-left" />
+        </div>
         <div class="lightbox-img">
-          <font-awesome-icon icon="fa-solid fa-xmark" class="close-modal" @click="handleModal" />
-          <div>
-            
-          </div>
           <div class="image-modal">
             <img class="big" src="../assets/image-product-1.jpg" />
           </div>
@@ -65,10 +63,8 @@
 
             <img src="../assets/image-product-4-thumbnail.jpg" />
           </div>
-          
         </div>
-        <font-awesome-icon icon="fa-solid fa-angle-right"  class="arrow-right"/>
-        <font-awesome-icon icon="fa-solid fa-angle-left" class="arrow-left"/>
+        <font-awesome-icon icon="fa-solid fa-angle-right" class="arrow-right" />
       </div>
       <div class="overlay hidden" v-show="modal"></div>
     </div>
@@ -256,28 +252,30 @@ export default {
 }
 
 .lightbox {
-
+  display: flex;
   position: absolute;
   top: 0%;
   left: 0%;
   width: 100%;
-
   z-index: 10;
   margin-top: 6.5%;
 }
 
-.arrow-right{
+.arrow-right {
   background-color: white;
   width: 1%;
-  height: .3%;
-  padding: .7% 1.3% .7% 1.3%;
+  height: 0.3%;
+  padding: 0.7% 1.3% 0.7% 1.3%;
   border-radius: 100%;
 }
-.arrow-left{
+.arrow-left {
+  position: absolute;
+  left: 32%;
+  top: 35%;
   background-color: white;
   width: 1%;
-  height: .3%;
-  padding: .7% 1.3% .7% 1.3%;
+  height: 0.3%;
+  padding: 0.7% 1.3% 0.7% 1.3%;
   border-radius: 100%;
 }
 
@@ -297,6 +295,7 @@ export default {
   font-weight: bolder;
 }
 .image-modal {
+  display: flex;
   width: 30%;
   height: 80%;
 }

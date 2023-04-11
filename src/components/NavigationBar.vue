@@ -46,7 +46,9 @@
           src="../assets/icon-cart.svg"
           @click="handlePop"
         />
-        <div class="top-right-display">{{ loadedCount }}</div>
+        <div class="top-right-display">
+          {{ loadedCount }}
+        </div>
       </div>
 
       <img class="avatar" src="../assets/image-avatar.png" />
@@ -56,7 +58,7 @@
       <h3>Cart</h3>
       <hr />
 
-      <div v-if="loadedCount > 0">
+      <div style="height: 40%" v-if="loadedCount > 0">
         <div class="pop-menu">
           <img src="../assets/image-product-1-thumbnail.jpg" />
           <div class="pop-paragraph">
@@ -77,7 +79,7 @@
         <button class="btn">Checkout</button>
       </div>
 
-      <p v-if="!loadedCount > 0">Your Cart is Empty</p>
+      <p class="pop-empty" v-if="!loadedCount > 0">Your Cart is Empty.</p>
     </div>
   </div>
   <hr />
@@ -90,7 +92,7 @@ export default {
     return {
       show: true,
       close: false,
-      popup: true,
+      popup: false,
     };
   },
 
@@ -157,9 +159,16 @@ export default {
 
 .pop-out h3 {
   margin-bottom: 3.5%;
+  color: black;
 }
-.pop-out p {
+.pop-out .pop-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   margin-top: 5%;
+  font-weight: bolder;
+  height: 50%;
 }
 .pop-menu {
   margin-top: 5%;
@@ -177,10 +186,10 @@ export default {
   line-height: 1.4;
 }
 
-.pop-out .btn {
+.btn {
   background-color: hsl(26, 100%, 55%);
   width: 100%;
-  height: 25%;
+  height: 70%;
   border: none;
   border-radius: 12px;
   color: white;
